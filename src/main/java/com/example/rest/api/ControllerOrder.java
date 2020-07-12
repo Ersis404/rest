@@ -15,22 +15,22 @@ public class ControllerOrder {
     @Autowired
     public ControllerOrder(OrderService orderService){ this.orderService = orderService; }
 
-    @RequestMapping(value = "/addNewOrder", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/addNewOrder", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public void addNewOrder(@RequestBody Order newOrder){
         orderService.addNewOrderOrChange(newOrder);
     }
 
-    @RequestMapping(value = "/delOrder/{orderId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/delOrder/{orderId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void delOrder(@PathVariable("orderId") Long orderId){
         orderService.delOrder(orderId);
     }
 
-    @RequestMapping(value = "/editOrder", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/editOrder", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public void editOrder(@RequestBody Order newOrder){
         orderService.addNewOrderOrChange(newOrder);
     }
 
-    @RequestMapping(value = "/getOneOrderById/{orderId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/getOneOrderById/{orderId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Order getOneOrderById(@PathVariable("orderId") Long orderId){
         return orderService.getOneOrderById(orderId);
     }

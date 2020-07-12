@@ -15,12 +15,12 @@ public class ControllerOrderDetail {
         this.orderDetailService = orderDetailService;
     }
 
-    @RequestMapping(value = "/addNewOrderDetail", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public void addNewOrderDetail(@RequestBody OrderDetail newOrderDetail){
-        orderDetailService.addNewOrderDetail(newOrderDetail);
+    @RequestMapping(value = "/addNewOrderDetail/{product_id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public void addNewOrderDetail(@RequestBody OrderDetail newOrderDetail, @PathVariable("product_id") Long product_id){
+        orderDetailService.addNewOrderDetail(newOrderDetail, product_id);
     }
 
-    @RequestMapping(value = "/delOrderDetail/{orderId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/delOrderDetail/{orderDetailId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public void delOrder(@PathVariable("orderDetailId") Long orderDetailId){
         orderDetailService.delOrderDetail(orderDetailId);
     }
